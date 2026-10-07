@@ -126,3 +126,51 @@
   background: rgba(159, 122, 234, 0.4);
   border-radius: 3px;
 }
+
+/* Mobile Optimizations */
+@media (max-width: 640px) {
+  /* Уменьшаем отступы на мобильных */
+  .mobile-p-4 {
+    padding: 1rem !important;
+  }
+  
+  .mobile-p-3 {
+    padding: 0.75rem !important;
+  }
+  
+  .mobile-gap-2 {
+    gap: 0.5rem !important;
+  }
+  
+  /* Уменьшаем размер декоративных карточек в заголовке */
+  .mobile-card-sm {
+    width: 2.5rem !important;
+    height: 3.5rem !important;
+    font-size: 1.25rem !important;
+  }
+  
+  /* Уменьшаем кнопку обратной связи на мобильных */
+  .mobile-feedback-btn {
+    width: 3.5rem !important;
+    height: 3.5rem !important;
+    bottom: 1rem !important;
+    right: 1rem !important;
+  }
+  
+  /* Адаптация модального окна для мобильных */
+  .mobile-modal {
+    height: 90vh !important;
+    max-height: 90vh !important;
+  }
+}
+
+/* Safe area для iPhone с челкой */
+@supports (padding: max(0px)) {
+  .safe-area-bottom {
+    padding-bottom: max(1.5rem, env(safe-area-inset-bottom));
+  }
+  
+  .safe-area-top {
+    padding-top: max(1.5rem, env(safe-area-inset-top));
+  }
+}

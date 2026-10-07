@@ -355,34 +355,34 @@ export default function App() {
 
       {/* MENU SCREEN */}
       {screen === 'menu' && (
-        <div className="relative z-1 min-h-screen flex flex-col items-center justify-start px-4 py-6">
-          <div className="w-full max-w-[640px] bg-[rgba(26,11,61,0.55)] border border-violet-light/35 rounded-2xl p-7 shadow-[0_12px_40px_rgba(15,5,36,0.6),0_0_24px_rgba(159,122,234,0.15)] backdrop-blur-sm">
-            <div className="flex items-center justify-center gap-3 mb-1.5">
+        <div className="relative z-1 min-h-screen flex flex-col items-center justify-start px-3 sm:px-4 py-4 sm:py-6 safe-area-top">
+          <div className="w-full max-w-[640px] bg-[rgba(26,11,61,0.55)] border border-violet-light/35 rounded-2xl p-4 sm:p-7 shadow-[0_12px_40px_rgba(15,5,36,0.6),0_0_24px_rgba(159,122,234,0.15)] backdrop-blur-sm">
+            <div className="flex items-center justify-center gap-2 sm:gap-3 mb-1.5">
               {/* Левая карточка — розовая рубашка с вопросом */}
               <div
-                className="w-12 h-16 rounded-lg bg-gradient-to-br from-pink-400 to-pink-600 border-2 border-pink-300/60 flex items-center justify-center text-2xl text-white font-bold shadow-[0_6px_16px_rgba(236,72,153,0.4)] animate-sway-left origin-bottom"
+                className="w-10 h-14 sm:w-12 sm:h-16 rounded-lg bg-gradient-to-br from-pink-400 to-pink-600 border-2 border-pink-300/60 flex items-center justify-center text-xl sm:text-2xl text-white font-bold shadow-[0_6px_16px_rgba(236,72,153,0.4)] animate-sway-left origin-bottom"
               >
                 ?
               </div>
               {/* Заголовок */}
-              <h1 className="text-[clamp(2rem,6vw,3rem)] text-gold tracking-wide font-bold">
+              <h1 className="text-[clamp(1.75rem,6vw,3rem)] text-gold tracking-wide font-bold">
                 Мемори
               </h1>
               {/* Правая карточка — мятная лицевая со звездой */}
               <div
-                className="w-12 h-16 rounded-lg bg-gradient-to-br from-emerald-300 to-teal-500 border-2 border-emerald-200/60 flex items-center justify-center text-2xl text-white shadow-[0_6px_16px_rgba(52,211,153,0.4)] animate-sway-right origin-bottom"
+                className="w-10 h-14 sm:w-12 sm:h-16 rounded-lg bg-gradient-to-br from-emerald-300 to-teal-500 border-2 border-emerald-200/60 flex items-center justify-center text-xl sm:text-2xl text-white shadow-[0_6px_16px_rgba(52,211,153,0.4)] animate-sway-right origin-bottom"
               >
                 ★
               </div>
             </div>
-            <p className="text-center text-text-soft mb-6">Найди пару — классическая игра на память</p>
+            <p className="text-center text-text-soft mb-4 sm:mb-6 text-sm sm:text-base">Найди пару — классическая игра на память</p>
 
-            <h2 className="text-violet-light text-[1.05rem] mt-5 mb-2.5 uppercase tracking-[1.5px] font-bold">Сложность</h2>
-            <div className="grid grid-cols-3 gap-2.5 max-sm:grid-cols-1">
+            <h2 className="text-violet-light text-sm sm:text-[1.05rem] mt-4 sm:mt-5 mb-2 sm:mb-2.5 uppercase tracking-[1.5px] font-bold">Сложность</h2>
+            <div className="grid grid-cols-3 gap-2 sm:gap-2.5 max-sm:grid-cols-1">
               {(Object.keys(DIFFICULTIES) as Difficulty[]).map(key => (
                 <button
                   key={key}
-                  className={`rounded-xl p-3.5 text-center cursor-pointer transition-all duration-200 border-2 ${
+                  className={`rounded-xl p-2.5 sm:p-3.5 text-center cursor-pointer transition-all duration-200 border-2 ${
                     difficulty === key
                       ? 'border-gold bg-gold/10 text-white shadow-[0_0_16px_rgba(255,215,0,0.25)]'
                       : 'border-violet-light/30 bg-bg-3/50 text-text-soft hover:border-violet hover:-translate-y-0.5'
@@ -415,44 +415,44 @@ export default function App() {
               ))}
             </div>
 
-            <h2 className="text-violet-light text-[1.05rem] mt-5 mb-2.5 uppercase tracking-[1.5px] font-bold">Тема карточек</h2>
-            <div className="grid grid-cols-3 gap-2.5 max-sm:grid-cols-1">
+            <h2 className="text-violet-light text-sm sm:text-[1.05rem] mt-4 sm:mt-5 mb-2 sm:mb-2.5 uppercase tracking-[1.5px] font-bold">Тема карточек</h2>
+            <div className="grid grid-cols-3 gap-2 sm:gap-2.5 max-sm:grid-cols-1">
               {(Object.keys(THEMES) as Theme[]).map(key => (
                 <button
                   key={key}
-                  className={`rounded-xl p-3.5 text-center cursor-pointer transition-all duration-200 border-2 ${
+                  className={`rounded-xl p-2.5 sm:p-3.5 text-center cursor-pointer transition-all duration-200 border-2 ${
                     theme === key
                       ? 'border-gold bg-gold/10 text-white shadow-[0_0_16px_rgba(255,215,0,0.25)]'
                       : 'border-violet-light/30 bg-bg-3/50 text-text-soft hover:border-violet hover:-translate-y-0.5'
                   }`}
                   onClick={() => setTheme(key)}
                 >
-                  <span className="block text-[1.6rem] mb-1">
+                  <span className="block text-xl sm:text-[1.6rem] mb-1">
                     {key === 'fruits' ? '🍎' : key === 'animals' ? '🐶' : '🍕'}
                   </span>
-                  <span>{THEMES[key].name}</span>
+                  <span className="text-sm sm:text-base">{THEMES[key].name}</span>
                 </button>
               ))}
             </div>
 
-            <div className="text-center mt-6">
+            <div className="text-center mt-4 sm:mt-6">
               <button
-                className="inline-block border-none cursor-pointer font-semibold rounded-xl py-3.5 px-10 text-[1.15rem] text-bg-1 bg-gradient-to-br from-gold to-[#ffbf00] shadow-[0_6px_18px_rgba(255,215,0,0.25)] transition-all duration-150 hover:-translate-y-0.5 hover:brightness-108 active:translate-y-0"
+                className="inline-block border-none cursor-pointer font-semibold rounded-xl py-3 sm:py-3.5 px-6 sm:px-10 text-base sm:text-[1.15rem] text-bg-1 bg-gradient-to-br from-gold to-[#ffbf00] shadow-[0_6px_18px_rgba(255,215,0,0.25)] transition-all duration-150 hover:-translate-y-0.5 hover:brightness-108 active:translate-y-0 w-full sm:w-auto"
                 onClick={startGame}
               >
                 ▶ Начать игру
               </button>
             </div>
 
-            <div className="flex gap-3 flex-wrap justify-center mt-5">
+            <div className="flex gap-2 sm:gap-3 flex-wrap justify-center mt-4 sm:mt-5">
               <button
-                className="px-5 py-3 rounded-xl border border-violet-light text-violet-light bg-transparent cursor-pointer font-semibold transition-all hover:bg-violet-light/12"
+                className="px-4 sm:px-5 py-2.5 sm:py-3 rounded-xl border border-violet-light text-violet-light bg-transparent cursor-pointer font-semibold text-sm sm:text-base transition-all hover:bg-violet-light/12"
                 onClick={() => setScreen('about')}
               >
                 О проекте
               </button>
               <button
-                className="px-5 py-3 rounded-xl border border-violet-light text-violet-light bg-transparent cursor-pointer font-semibold transition-all hover:bg-violet-light/12"
+                className="px-4 sm:px-5 py-2.5 sm:py-3 rounded-xl border border-violet-light text-violet-light bg-transparent cursor-pointer font-semibold text-sm sm:text-base transition-all hover:bg-violet-light/12"
                 onClick={openRecords}
               >
                 Рекорды
@@ -464,22 +464,22 @@ export default function App() {
 
       {/* GAME SCREEN */}
       {screen === 'game' && game && (
-        <div className="relative z-1 min-h-screen flex flex-col items-center justify-start px-4 py-6">
-          <div className="w-full max-w-[640px] bg-[rgba(26,11,61,0.55)] border border-violet-light/35 rounded-2xl p-7 shadow-[0_12px_40px_rgba(15,5,36,0.6),0_0_24px_rgba(159,122,234,0.15)] backdrop-blur-sm">
-            <div className="flex justify-between items-center gap-2.5 flex-wrap mb-4">
-              <div className="flex gap-2.5 flex-wrap">
-                <div className="bg-bg-3/60 border border-violet-light/35 rounded-xl px-3.5 py-2 text-sm text-text-soft whitespace-nowrap">
+        <div className="relative z-1 min-h-screen flex flex-col items-center justify-start px-2 sm:px-4 py-3 sm:py-6 safe-area-top">
+          <div className="w-full max-w-[640px] bg-[rgba(26,11,61,0.55)] border border-violet-light/35 rounded-2xl p-3 sm:p-7 shadow-[0_12px_40px_rgba(15,5,36,0.6),0_0_24px_rgba(159,122,234,0.15)] backdrop-blur-sm">
+            <div className="flex justify-between items-center gap-2 flex-wrap mb-3 sm:mb-4">
+              <div className="flex gap-1.5 sm:gap-2.5 flex-wrap">
+                <div className="bg-bg-3/60 border border-violet-light/35 rounded-lg sm:rounded-xl px-2 sm:px-3.5 py-1.5 sm:py-2 text-xs sm:text-sm text-text-soft whitespace-nowrap">
                   Ходы: <b className="text-gold tabular-nums">{game.moves}</b>
                 </div>
-                <div className="bg-bg-3/60 border border-violet-light/35 rounded-xl px-3.5 py-2 text-sm text-text-soft whitespace-nowrap">
+                <div className="bg-bg-3/60 border border-violet-light/35 rounded-lg sm:rounded-xl px-2 sm:px-3.5 py-1.5 sm:py-2 text-xs sm:text-sm text-text-soft whitespace-nowrap">
                   Пары: <b className="text-gold tabular-nums">{game.found}/{DIFFICULTIES[difficulty].pairs}</b>
                 </div>
-                <div className="bg-bg-3/60 border border-violet-light/35 rounded-xl px-3.5 py-2 text-sm text-text-soft whitespace-nowrap">
+                <div className="bg-bg-3/60 border border-violet-light/35 rounded-lg sm:rounded-xl px-2 sm:px-3.5 py-1.5 sm:py-2 text-xs sm:text-sm text-text-soft whitespace-nowrap">
                   ⏱ <b className="text-gold tabular-nums">{fmtTime(game.seconds)}</b>
                 </div>
               </div>
               <button
-                className="px-4 py-2 rounded-xl border border-violet-light text-violet-light bg-transparent cursor-pointer font-semibold text-sm transition-all hover:bg-violet-light/12"
+                className="px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg sm:rounded-xl border border-violet-light text-violet-light bg-transparent cursor-pointer font-semibold text-xs sm:text-sm transition-all hover:bg-violet-light/12"
                 onClick={backToMenu}
               >
                 ← В меню
@@ -487,8 +487,8 @@ export default function App() {
             </div>
 
             <div
-              className="grid gap-3 justify-center max-sm:gap-2"
-              style={{ gridTemplateColumns: `repeat(${DIFFICULTIES[difficulty].cols}, minmax(64px, 96px))` }}
+              className="grid gap-2 sm:gap-3 justify-center"
+              style={{ gridTemplateColumns: `repeat(${DIFFICULTIES[difficulty].cols}, minmax(56px, 96px))` }}
             >
               {game.cards.map((card, idx) => (
                 <CardComponent
@@ -505,35 +505,35 @@ export default function App() {
 
       {/* WIN SCREEN */}
       {screen === 'win' && winData && (
-        <div className="relative z-1 min-h-screen flex flex-col items-center justify-start px-4 py-6">
-          <div className="w-full max-w-[640px] bg-[rgba(26,11,61,0.55)] border border-violet-light/35 rounded-2xl p-7 shadow-[0_12px_40px_rgba(15,5,36,0.6),0_0_24px_rgba(159,122,234,0.15)] backdrop-blur-sm">
-            <h2 className="text-center text-gold text-[1.8rem] mb-1 font-bold">🎉 Победа!</h2>
-            <p className="text-center text-text-soft mb-3.5">Все пары найдены</p>
-            <div className="text-center my-2.5">
-              <StarDisplay count={winData.stars} animated={true} />
+        <div className="relative z-1 min-h-screen flex flex-col items-center justify-start px-3 sm:px-4 py-4 sm:py-6 safe-area-top">
+          <div className="w-full max-w-[640px] bg-[rgba(26,11,61,0.55)] border border-violet-light/35 rounded-2xl p-4 sm:p-7 shadow-[0_12px_40px_rgba(15,5,36,0.6),0_0_24px_rgba(159,122,234,0.15)] backdrop-blur-sm">
+            <h2 className="text-center text-gold text-xl sm:text-[1.8rem] mb-1 font-bold">🎉 Победа!</h2>
+            <p className="text-center text-text-soft mb-3 sm:mb-3.5 text-sm sm:text-base">Все пары найдены</p>
+            <div className="text-center my-2 sm:my-2.5">
+              <StarDisplay count={winData.stars} animated={true} size="text-[clamp(2rem,8vw,4rem)]" />
             </div>
-            <div className="flex gap-2.5 flex-wrap justify-center items-center mt-3.5">
-              <div className="bg-bg-3/60 border border-violet-light/35 rounded-xl px-3.5 py-2 text-sm text-text-soft">
+            <div className="flex gap-1.5 sm:gap-2.5 flex-wrap justify-center items-center mt-3 sm:mt-3.5">
+              <div className="bg-bg-3/60 border border-violet-light/35 rounded-lg sm:rounded-xl px-2.5 sm:px-3.5 py-1.5 sm:py-2 text-xs sm:text-sm text-text-soft">
                 Время: <b className="text-gold">{fmtTime(winData.time)}</b>
               </div>
-              <div className="bg-bg-3/60 border border-violet-light/35 rounded-xl px-3.5 py-2 text-sm text-text-soft">
+              <div className="bg-bg-3/60 border border-violet-light/35 rounded-lg sm:rounded-xl px-2.5 sm:px-3.5 py-1.5 sm:py-2 text-xs sm:text-sm text-text-soft">
                 Ходы: <b className="text-gold">{winData.moves}</b>
               </div>
               {winData.best && (
-                <div className="bg-bg-3/60 border border-violet-light/35 rounded-xl px-3.5 py-2 text-sm text-text-soft inline-flex items-center gap-1">
-                  Рекорд: <b className="text-gold inline-flex items-center gap-1">{winData.best.moves} ходов (<StarDisplay count={winData.best.stars} size="text-base" gap="gap-0.5" />)</b>
+                <div className="bg-bg-3/60 border border-violet-light/35 rounded-lg sm:rounded-xl px-2.5 sm:px-3.5 py-1.5 sm:py-2 text-xs sm:text-sm text-text-soft inline-flex items-center gap-1">
+                  Рекорд: <b className="text-gold inline-flex items-center gap-1">{winData.best.moves} ходов (<StarDisplay count={winData.best.stars} size="text-sm sm:text-base" gap="gap-0.5" />)</b>
                 </div>
               )}
             </div>
-            <div className="flex gap-3 flex-wrap justify-center mt-5">
+            <div className="flex gap-2 sm:gap-3 flex-wrap justify-center mt-4 sm:mt-5">
               <button
-                className="inline-block border-none cursor-pointer font-semibold rounded-xl py-3 px-6 text-white bg-gradient-to-br from-gold to-[#ffbf00] shadow-[0_6px_18px_rgba(255,215,0,0.25)] transition-all duration-150 hover:-translate-y-0.5 hover:brightness-108 active:translate-y-0"
+                className="inline-block border-none cursor-pointer font-semibold rounded-xl py-2.5 sm:py-3 px-4 sm:px-6 text-sm sm:text-base text-white bg-gradient-to-br from-gold to-[#ffbf00] shadow-[0_6px_18px_rgba(255,215,0,0.25)] transition-all duration-150 hover:-translate-y-0.5 hover:brightness-108 active:translate-y-0"
                 onClick={startGame}
               >
                 🔄 Играть снова
               </button>
               <button
-                className="px-5 py-3 rounded-xl border border-violet-light text-violet-light bg-transparent cursor-pointer font-semibold transition-all hover:bg-violet-light/12"
+                className="px-4 sm:px-5 py-2.5 sm:py-3 rounded-xl border border-violet-light text-violet-light bg-transparent cursor-pointer font-semibold text-sm sm:text-base transition-all hover:bg-violet-light/12"
                 onClick={backToMenu}
               >
                 В меню
@@ -545,11 +545,12 @@ export default function App() {
 
       {/* RECORDS SCREEN */}
       {screen === 'records' && (
-        <div className="relative z-1 min-h-screen flex flex-col items-center justify-start px-4 py-6">
-          <div className="w-full max-w-[640px] bg-[rgba(26,11,61,0.55)] border border-violet-light/35 rounded-2xl p-7 shadow-[0_12px_40px_rgba(15,5,36,0.6),0_0_24px_rgba(159,122,234,0.15)] backdrop-blur-sm">
-            <h1 className="text-center text-gold text-[1.8rem] mb-1 font-bold">🏆 Рекорды</h1>
-            <p className="text-center text-text-soft mb-6">Лучшие результаты по каждой теме и сложности</p>
-            <table className="w-full border-collapse mt-1.5 text-[0.95rem]">
+        <div className="relative z-1 min-h-screen flex flex-col items-center justify-start px-3 sm:px-4 py-4 sm:py-6 safe-area-top">
+          <div className="w-full max-w-[640px] bg-[rgba(26,11,61,0.55)] border border-violet-light/35 rounded-2xl p-4 sm:p-7 shadow-[0_12px_40px_rgba(15,5,36,0.6),0_0_24px_rgba(159,122,234,0.15)] backdrop-blur-sm">
+            <h1 className="text-center text-gold text-xl sm:text-[1.8rem] mb-1 font-bold">🏆 Рекорды</h1>
+            <p className="text-center text-text-soft mb-4 sm:mb-6 text-sm sm:text-base">Лучшие результаты по каждой теме и сложности</p>
+            <div className="overflow-x-auto">
+            <table className="w-full border-collapse mt-1.5 text-sm sm:text-[0.95rem] min-w-[400px]">
               <thead>
                 <tr>
                   <th className="py-2.5 px-2 text-left text-violet-light uppercase text-[0.78rem] tracking-wide border-b border-violet-light/25">Тема</th>
@@ -583,9 +584,10 @@ export default function App() {
                 )}
               </tbody>
             </table>
-            <div className="flex gap-3 flex-wrap justify-center mt-5">
+            </div>
+            <div className="flex gap-2 sm:gap-3 flex-wrap justify-center mt-4 sm:mt-5">
               <button
-                className="px-5 py-3 rounded-xl border border-violet-light text-violet-light bg-transparent cursor-pointer font-semibold transition-all hover:bg-violet-light/12"
+                className="px-4 sm:px-5 py-2.5 sm:py-3 rounded-xl border border-violet-light text-violet-light bg-transparent cursor-pointer font-semibold text-sm sm:text-base transition-all hover:bg-violet-light/12"
                 onClick={backToMenu}
               >
                 ← Назад
@@ -597,59 +599,59 @@ export default function App() {
 
       {/* ABOUT SCREEN */}
       {screen === 'about' && (
-        <div className="relative z-1 min-h-screen flex flex-col items-center justify-start px-4 py-6">
-          <div className="w-full max-w-[640px] bg-[rgba(26,11,61,0.55)] border border-violet-light/35 rounded-2xl p-7 shadow-[0_12px_40px_rgba(15,5,36,0.6),0_0_24px_rgba(159,122,234,0.15)] backdrop-blur-sm">
-            <h1 className="text-center text-gold text-[1.8rem] mb-1 font-bold">ℹ️ О проекте</h1>
+        <div className="relative z-1 min-h-screen flex flex-col items-center justify-start px-3 sm:px-4 py-4 sm:py-6 safe-area-top">
+          <div className="w-full max-w-[640px] bg-[rgba(26,11,61,0.55)] border border-violet-light/35 rounded-2xl p-4 sm:p-7 shadow-[0_12px_40px_rgba(15,5,36,0.6),0_0_24px_rgba(159,122,234,0.15)] backdrop-blur-sm">
+            <h1 className="text-center text-gold text-xl sm:text-[1.8rem] mb-1 font-bold">ℹ️ О проекте</h1>
 
-            <h2 className="text-violet-light text-[1.05rem] mt-5 mb-2.5 uppercase tracking-[1.5px] font-bold">Что это за игра</h2>
-            <p className="text-text-soft leading-[1.65] mb-2.5">
+            <h2 className="text-violet-light text-sm sm:text-[1.05rem] mt-4 sm:mt-5 mb-2 sm:mb-2.5 uppercase tracking-[1.5px] font-bold">Что это за игра</h2>
+            <p className="text-text-soft leading-[1.65] mb-2 sm:mb-2.5 text-sm sm:text-base">
               «Мемори» — классическая одиночная игра на память. На поле лежат карточки рубашкой
               вверх. Ваша задача — найти все одинаковые пары за минимальное количество ходов.
             </p>
 
-            <h2 className="text-violet-light text-[1.05rem] mt-5 mb-2.5 uppercase tracking-[1.5px] font-bold">Как играть</h2>
-            <ul className="text-text-soft leading-[1.65] mb-2.5 pl-5 list-disc space-y-2">
+            <h2 className="text-violet-light text-sm sm:text-[1.05rem] mt-4 sm:mt-5 mb-2 sm:mb-2.5 uppercase tracking-[1.5px] font-bold">Как играть</h2>
+            <ul className="text-text-soft leading-[1.65] mb-2 sm:mb-2.5 pl-5 list-disc space-y-2 text-sm sm:text-base">
               <li>Кликните на первую карточку — она перевернётся и покажет эмодзи.</li>
               <li>Кликните на вторую карточку.</li>
               <li>Если эмодзи совпали — обе карточки остаются открытыми и подсвечиваются зелёным.</li>
               <li>Если не совпали — карточки перевернутся обратно через одну секунду.</li>
               <li>Игра заканчивается, когда найдены все пары.</li>
             </ul>
-            <p className="text-text-soft leading-[1.65] mb-2.5">
+            <p className="text-text-soft leading-[1.65] mb-2 sm:mb-2.5 text-sm sm:text-base">
               Переворот карточек реализован через CSS 3D-трансформацию (<code className="text-violet-light">transform: rotateY(180deg)</code>) с быстрым переходом 0.25 секунды — карточки переворачиваются мгновенно и отзывчиво.
             </p>
 
-            <h2 className="text-violet-light text-[1.05rem] mt-5 mb-2.5 uppercase tracking-[1.5px] font-bold">Система звёзд</h2>
-            <ul className="text-text-soft leading-[1.65] mb-2.5 pl-5 list-disc space-y-2">
+            <h2 className="text-violet-light text-sm sm:text-[1.05rem] mt-4 sm:mt-5 mb-2 sm:mb-2.5 uppercase tracking-[1.5px] font-bold">Система звёзд</h2>
+            <ul className="text-text-soft leading-[1.65] mb-2 sm:mb-2.5 pl-5 list-disc space-y-2 text-sm sm:text-base">
               <li><b className="text-white">Лёгкая:</b> ★★★ — за 5 или меньше ходов, ★★ — за 7 или меньше, ★ — за прохождение.</li>
               <li><b className="text-white">Средняя:</b> ★★★ — за 8 или меньше ходов, ★★ — за 11 или меньше, ★ — за прохождение.</li>
               <li><b className="text-white">Сложная:</b> ★★★ — за 11 или меньше ходов, ★★ — за 15 или меньше, ★ — за прохождение.</li>
             </ul>
-            <p className="text-text-soft leading-[1.65] mb-2.5">
+            <p className="text-text-soft leading-[1.65] mb-2 sm:mb-2.5 text-sm sm:text-base">
               Звёзды сохраняются отдельно для каждой комбинации темы и сложности в LocalStorage, чтобы вы могли отслеживать прогресс и улучшать результат.
             </p>
 
-            <h2 className="text-violet-light text-[1.05rem] mt-5 mb-2.5 uppercase tracking-[1.5px] font-bold">Палитра цветов</h2>
-            <div className="grid grid-cols-[repeat(auto-fill,minmax(140px,1fr))] gap-2.5 my-2">
+            <h2 className="text-violet-light text-sm sm:text-[1.05rem] mt-4 sm:mt-5 mb-2 sm:mb-2.5 uppercase tracking-[1.5px] font-bold">Палитра цветов</h2>
+            <div className="grid grid-cols-[repeat(auto-fill,minmax(120px,1fr))] sm:grid-cols-[repeat(auto-fill,minmax(140px,1fr))] gap-2 sm:gap-2.5 my-2">
               {PALETTE.map((p, i) => (
                 <div
                   key={i}
-                  className="rounded-xl p-3.5 text-xs font-semibold border border-white/15 min-h-[64px] flex flex-col gap-1.5 justify-end"
+                  className="rounded-lg sm:rounded-xl p-2.5 sm:p-3.5 text-xs font-semibold border border-white/15 min-h-[56px] sm:min-h-[64px] flex flex-col gap-1 sm:gap-1.5 justify-end"
                   style={{ background: p.hex, color: p.color }}
                 >
-                  <span className="font-normal opacity-85 text-[0.75rem]">{p.name}</span>
+                  <span className="font-normal opacity-85 text-[0.7rem] sm:text-[0.75rem]">{p.name}</span>
                   <span>{p.hex}</span>
                 </div>
               ))}
             </div>
 
-            <h2 className="text-violet-light text-[1.05rem] mt-5 mb-2.5 uppercase tracking-[1.5px] font-bold">Анимированный фон</h2>
-            <p className="text-text-soft leading-[1.65] mb-2.5">
+            <h2 className="text-violet-light text-sm sm:text-[1.05rem] mt-4 sm:mt-5 mb-2 sm:mb-2.5 uppercase tracking-[1.5px] font-bold">Анимированный фон</h2>
+            <p className="text-text-soft leading-[1.65] mb-2 sm:mb-2.5 text-sm sm:text-base">
               Фон живой, но ненавязчивый: <b className="text-white">10–15 полупрозрачных разноцветных шаров</b> (20–80&nbsp;px) медленно дрейфуют по экрану по CSS-анимациям длительностью 25–45 секунд с плавным ходом ease-in-out — только перемещение, никаких пульсаций и изменений масштаба. Дополнительно <b className="text-white">40–60 мелких мерцающих звёздочек</b> (1–3&nbsp;px) плавно меняют прозрачность от 0.2 до 0.9 с случайным циклом 2–6 секунд, некоторые — со слабым свечением.
             </p>
 
-            <h2 className="text-violet-light text-[1.05rem] mt-5 mb-2.5 uppercase tracking-[1.5px] font-bold">Технический стек</h2>
-            <ul className="text-text-soft leading-[1.65] mb-2.5 pl-5 list-disc space-y-2">
+            <h2 className="text-violet-light text-sm sm:text-[1.05rem] mt-4 sm:mt-5 mb-2 sm:mb-2.5 uppercase tracking-[1.5px] font-bold">Технический стек</h2>
+            <ul className="text-text-soft leading-[1.65] mb-2 sm:mb-2.5 pl-5 list-disc space-y-2 text-sm sm:text-base">
               <li><b className="text-white">HTML5</b> — разметка</li>
               <li><b className="text-white">CSS3</b> — стили, градиенты, @keyframes-анимации, 3D-перевороты</li>
               <li><b className="text-white">JavaScript (ES6)</b> — игровая логика, без фреймворков</li>
@@ -657,9 +659,9 @@ export default function App() {
               <li><b className="text-white">Vercel</b> — хостинг</li>
             </ul>
 
-            <div className="flex gap-3 flex-wrap justify-center mt-5">
+            <div className="flex gap-2 sm:gap-3 flex-wrap justify-center mt-4 sm:mt-5">
               <button
-                className="px-5 py-3 rounded-xl border border-violet-light text-violet-light bg-transparent cursor-pointer font-semibold transition-all hover:bg-violet-light/12"
+                className="px-4 sm:px-5 py-2.5 sm:py-3 rounded-xl border border-violet-light text-violet-light bg-transparent cursor-pointer font-semibold text-sm sm:text-base transition-all hover:bg-violet-light/12"
                 onClick={backToMenu}
               >
                 ← Назад
@@ -672,7 +674,7 @@ export default function App() {
       {/* Feedback Button */}
       <button
         onClick={() => setShowFeedback(true)}
-        className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-gradient-to-br from-violet to-violet-deep border-2 border-violet-light/50 flex items-center justify-center text-2xl shadow-[0_6px_20px_rgba(159,122,234,0.5)] transition-all duration-200 hover:scale-110 hover:shadow-[0_8px_25px_rgba(159,122,234,0.7)] cursor-pointer"
+        className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-br from-violet to-violet-deep border-2 border-violet-light/50 flex items-center justify-center text-xl sm:text-2xl shadow-[0_6px_20px_rgba(159,122,234,0.5)] transition-all duration-200 hover:scale-110 hover:shadow-[0_8px_25px_rgba(159,122,234,0.7)] cursor-pointer safe-area-bottom"
         title="Обратная связь"
       >
         💬
@@ -681,17 +683,17 @@ export default function App() {
       {/* Feedback Modal */}
       {showFeedback && (
         <div
-          className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm"
+          className="fixed inset-0 z-[100] flex items-center justify-center p-2 sm:p-4 bg-black/70 backdrop-blur-sm"
           onClick={() => setShowFeedback(false)}
         >
           <div
-            className="relative w-full max-w-[800px] h-[80vh] bg-[rgba(26,11,61,0.95)] border border-violet-light/35 rounded-2xl shadow-[0_12px_40px_rgba(15,5,36,0.8)] overflow-hidden"
+            className="relative w-full max-w-[800px] h-[90vh] sm:h-[80vh] bg-[rgba(26,11,61,0.95)] border border-violet-light/35 rounded-xl sm:rounded-2xl shadow-[0_12px_40px_rgba(15,5,36,0.8)] overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close Button */}
             <button
               onClick={() => setShowFeedback(false)}
-              className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-bg-3/80 border border-violet-light/50 flex items-center justify-center text-xl text-white hover:bg-violet-deep/50 transition-all cursor-pointer"
+              className="absolute top-2 right-2 sm:top-4 sm:right-4 z-10 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-bg-3/80 border border-violet-light/50 flex items-center justify-center text-base sm:text-xl text-white hover:bg-violet-deep/50 transition-all cursor-pointer"
               title="Закрыть"
             >
               ✕
