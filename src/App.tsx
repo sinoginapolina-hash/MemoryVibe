@@ -674,10 +674,10 @@ export default function App() {
       {/* Feedback Button */}
       <button
         onClick={() => setShowFeedback(true)}
-        className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-br from-violet to-violet-deep border-2 border-violet-light/50 shadow-[0_6px_20px_rgba(159,122,234,0.5)] transition-all duration-200 hover:scale-110 hover:shadow-[0_8px_25px_rgba(159,122,234,0.7)] cursor-pointer safe-area-bottom relative overflow-hidden"
+        className="fixed bottom-5 right-5 sm:bottom-8 sm:right-8 z-50 w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-violet to-violet-deep border-2 border-violet-light/50 shadow-[0_6px_20px_rgba(159,122,234,0.5)] transition-all duration-200 hover:scale-110 hover:shadow-[0_8px_25px_rgba(159,122,234,0.7)] cursor-pointer relative flex items-center justify-center"
         title="Обратная связь"
       >
-        <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-xl sm:text-2xl leading-none">💬</span>
+        <span className="text-2xl sm:text-3xl leading-none">💬</span>
       </button>
 
       {/* Feedback Modal */}
