@@ -674,12 +674,10 @@ export default function App() {
       {/* Feedback Button */}
       <button
         onClick={() => setShowFeedback(true)}
-        className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-br from-violet to-violet-deep border-2 border-violet-light/50 shadow-[0_6px_20px_rgba(159,122,234,0.5)] transition-all duration-200 hover:scale-110 hover:shadow-[0_8px_25px_rgba(159,122,234,0.7)] cursor-pointer safe-area-bottom"
+        className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-br from-violet to-violet-deep border-2 border-violet-light/50 shadow-[0_6px_20px_rgba(159,122,234,0.5)] transition-all duration-200 hover:scale-110 hover:shadow-[0_8px_25px_rgba(159,122,234,0.7)] cursor-pointer safe-area-bottom relative overflow-hidden"
         title="Обратная связь"
       >
-        <svg className="w-6 h-6 sm:w-7 sm:h-7 text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-          <path fillRule="evenodd" d="M18 10c0 3.866-3.582 7-8 7a8.841 8.841 0 01-4.083-.98L2 17l1.338-3.123C2.493 12.767 2 11.434 2 10c0-3.866 3.582-7 8-7s8 3.134 8 7zM7 9H5v2h2V9zm8 0h-2v2h2V9zM9 9h2v2H9V9z" clipRule="evenodd" />
-        </svg>
+        <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-xl sm:text-2xl leading-none">💬</span>
       </button>
 
       {/* Feedback Modal */}
