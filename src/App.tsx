@@ -233,6 +233,7 @@ export default function App() {
   const [flippedCards, setFlippedCards] = useState<Set<number>>(new Set());
   const [winData, setWinData] = useState<{ stars: number; moves: number; time: number; best: StarRecord | null } | null>(null);
   const [records, setRecords] = useState<Record<string, StarRecord>>({});
+  const [showFeedback, setShowFeedback] = useState(false);
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   // Timer
@@ -664,6 +665,46 @@ export default function App() {
                 ← Назад
               </button>
             </div>
+          </div>
+        </div>
+      )}
+
+      {/* Feedback Button */}
+      <button
+        onClick={() => setShowFeedback(true)}
+        className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-gradient-to-br from-violet to-violet-deep border-2 border-violet-light/50 flex items-center justify-center text-2xl shadow-[0_6px_20px_rgba(159,122,234,0.5)] transition-all duration-200 hover:scale-110 hover:shadow-[0_8px_25px_rgba(159,122,234,0.7)] cursor-pointer"
+        title="Обратная связь"
+      >
+        💬
+      </button>
+
+      {/* Feedback Modal */}
+      {showFeedback && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm"
+          onClick={() => setShowFeedback(false)}
+        >
+          <div
+            className="relative w-full max-w-[800px] h-[80vh] bg-[rgba(26,11,61,0.95)] border border-violet-light/35 rounded-2xl shadow-[0_12px_40px_rgba(15,5,36,0.8)] overflow-hidden"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Close Button */}
+            <button
+              onClick={() => setShowFeedback(false)}
+              className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-bg-3/80 border border-violet-light/50 flex items-center justify-center text-xl text-white hover:bg-violet-deep/50 transition-all cursor-pointer"
+              title="Закрыть"
+            >
+              ✕
+            </button>
+
+            {/* Google Form iframe */}
+            <iframe
+              src="https://docs.google.com/forms/d/e/1FAIpQLSduc3G-UjspHif9hdcEGWcDlZkAeY38iFa46MnLDYOE_xLYBw/viewform?embedded=true"
+              className="w-full h-full border-0"
+              title="Обратная связь"
+            >
+              Загрузка...
+            </iframe>
           </div>
         </div>
       )}
