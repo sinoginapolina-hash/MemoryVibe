@@ -332,7 +332,7 @@ export default function App() {
           return next;
         });
         setGame(prev => prev ? { ...prev, first: null, second: null, lock: false } : null);
-      }, 1000);
+      }, 500);
     }
   }, [game, flippedCards]);
 
